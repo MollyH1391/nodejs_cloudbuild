@@ -7,7 +7,7 @@ build:
     sha256: {}
   artifacts:
   - context: .
-    image: asia-east1-docker.pkg.dev/wingwill-demo-lab-molly/my-repository/nodejs-cloudbuild
+    image: asia-east1-docker.pkg.dev/wingwill-demo-lab-molly/my-repository/nodejs-cloudbuild:latest
 deploy:
   kubectl:
     manifests:
