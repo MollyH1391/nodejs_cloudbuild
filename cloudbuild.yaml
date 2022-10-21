@@ -19,6 +19,12 @@ steps:
   - 'asia-east1-docker.pkg.dev/$PROJECT_ID/my-repository/nodejs-cloudbuild:$SHORT_SHA'
 #[END cloudbuild]
 
+#skaffold
+- name: gcr.io/k8s-skaffold/skaffold:latest
+  id: skaffold
+  args:
+  - 
+
 
 
 # [START cloudbuild-trigger-cd]
