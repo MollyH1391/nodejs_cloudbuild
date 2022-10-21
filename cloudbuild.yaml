@@ -23,7 +23,7 @@ steps:
 # This step clones the nodejs-cloudbuild-ENV repository
 - name: 'gcr.io/cloud-builders/gcloud'
   id: Clone env repository
-  entrypoint: /bin
+  entrypoint: /bin/sh
   args:
   - '-c'
   - |
