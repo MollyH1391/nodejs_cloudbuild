@@ -21,7 +21,7 @@ steps:
 
 #skaffold 
 - name: gcr.io/k8s-skaffold/skaffold:latest
-  id: skaffold run
+  id: skaffold deploy
   env: 
   - 'CLOUDSDK_COMPUTE_ZONE=asia-east1'
   - 'CLOUDSDK_CONTAINER_CLUSTER=nodejs-cloudbuild'
@@ -33,7 +33,7 @@ steps:
       if [ "$BRANCH_NAME" == "main" ]
       gcloud auth configure-docker asia-east1-docker.pkg.dev
       then
-        skaffold run
+        skaffold deploy
       fi
 
 
