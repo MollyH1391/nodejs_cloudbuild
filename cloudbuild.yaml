@@ -27,7 +27,7 @@ steps:
   args:
   - '-c'
   - |
-    git clone https://github.com/MollyH1391/nodejs_cloudbuild_ENV.git
+    git clone https://github.com/MollyH1391/nodejs_cloudbuild_ENV.git \
     cd nodejs_cloudbuild_ENV && \
 
 # This step generates the new manifest
