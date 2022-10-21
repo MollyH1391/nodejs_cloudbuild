@@ -6,20 +6,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs-hello-world
+  name: nodejs-cloudbuild
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nodejs-hello-world
+      app: nodejs-cloudbuild
   template:
     metadata:
       labels:
-        app: nodejs-hello-world
+        app: nodejs-cloudbuild
     spec:
       containers:
         - name: server
-          image: nodejs-hello-world
+          image: asia-east1-docker.pkg.dev/wingwill-demo-lab-molly/my-repository/nodejs-cloudbuild
           ports:
           - containerPort: 8080
           env:
