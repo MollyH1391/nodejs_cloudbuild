@@ -1,5 +1,5 @@
 steps:
-
+# [START cloudbuild]
 # This step builds the container image.
 - name: 'gcr.io/cloud-builders/docker'
   id: Build
@@ -17,3 +17,29 @@ steps:
   args:
   - 'push'
   - 'asia-east1-docker.pkg.dev/$PROJECT_ID/my-repository/nodejs-cloudbuild:$SHORT_SHA'
+#[END cloudbuild]
+
+# [START cloudbuild-trigger-cd]
+# This step clones the nodejs-cloudbuild-ENV repository
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: Clone env repository
+  entrypoint: /bin/sh
+  args:
+  - '-c'
+  - |
+    git clone https://github.com/MollyH1391/nodejs_cloudbuild_ENV.git
+    cd nodejs_cloudbuild_ENV && \
+
+# This step generates the new manifest
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: Generate manifest
+  entrypoint: /bin/sh
+  args:
+  - '-c'
+  - |
+    cp -f kubernetes.yaml.tpl kubernetes.yaml 
+    git commit -m "deploy image of nodejs_cloudbuild"
+    git push origin production
+
+# [END cloudbuild-trigger-cd]
+
