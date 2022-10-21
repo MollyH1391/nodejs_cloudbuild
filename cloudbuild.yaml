@@ -31,6 +31,7 @@ steps:
     - |
       gcloud container clusters get-credentials nodejs-cloudbuild --region asia-east1 --project wingwill-demo-lab-molly
       if [ "$BRANCH_NAME" == "main" ]
+      gcloud auth configure-docker asia-east1-docker.pkg.dev
       then
         skaffold run
       fi
