@@ -19,11 +19,21 @@ steps:
   - 'asia-east1-docker.pkg.dev/$PROJECT_ID/my-repository/nodejs-cloudbuild:$SHORT_SHA'
 #[END cloudbuild]
 
-#skaffold
+#skaffold 
 - name: gcr.io/k8s-skaffold/skaffold:latest
-  id: skaffold
+  id: skaffold run
+  env: 
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-east1'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=nodejs-cloudbuild'
+  entrypoint: 'bash'
   args:
-  - 
+    - '-c'
+    - |
+      gcloud container clusters get-credentials nodejs-cloudbuild --region asia-east1 --project wingwill-demo-lab-molly
+      if [ "$BRANCH_NAME" == "main" ]
+      then
+        skaffold run
+      fi
 
 
 
