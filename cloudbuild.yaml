@@ -33,7 +33,7 @@ steps:
       if [ "$BRANCH_NAME" == "main" ]
       gcloud auth configure-docker asia-east1-docker.pkg.dev
       then
-        skaffold deploy
+        skaffold run
       fi
 
 
