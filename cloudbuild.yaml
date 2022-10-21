@@ -20,7 +20,7 @@ steps:
 #[END cloudbuild]
 
 #skaffold 
-- name: gcr.io/wingwill-demo-lab-molly/skaffold:alpha
+- name: gcr.io/k8s-skaffold/skaffold:latest
   id: skaffold run
   env: 
   - 'CLOUDSDK_COMPUTE_ZONE=asia-east1'

@@ -7,7 +7,7 @@ build:
     sha256: {}
   artifacts:
   - context: .
-    image: nodejs-hello-world
+    image: asia-east1-docker.pkg.dev/$PROJECT_ID/my-repository/nodejs-cloudbuild:$SHORT_SHA
 deploy:
   kubectl:
     manifests:
