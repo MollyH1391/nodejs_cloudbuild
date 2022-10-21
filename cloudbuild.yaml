@@ -27,6 +27,7 @@ steps:
   args:
   - '-c'
   - |
+    ls
     git clone https://github.com/MollyH1391/nodejs_cloudbuild_ENV.git
     cd nodejs_cloudbuild_ENV && \
 
